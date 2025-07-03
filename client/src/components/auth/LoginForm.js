@@ -33,6 +33,8 @@ const LoginForm = ({ onToggleForm }) => {
       return;
     }
 
+    console.log('LOGIN FORM DATA:', formData);
+
     // Simulate login
     login({
       email: formData.email,
