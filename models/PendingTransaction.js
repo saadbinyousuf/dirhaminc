@@ -1,0 +1,13 @@
+const mongoose = require('mongoose');
+
+const pendingTransactionSchema = new mongoose.Schema({
+  amount: { type: Number, required: true },
+  description: { type: String, required: true, trim: true },
+  category: { type: String, trim: true },
+  type: { type: String, enum: ['income', 'expense'], required: true },
+  date: { type: Date, default: Date.now },
+  expectedDate: { type: Date },
+  userId: { type: mongoose.Schema.Types.ObjectId, ref: 'User', required: true },
+});
+
+module.exports = mongoose.model('PendingTransaction', pendingTransactionSchema); 
